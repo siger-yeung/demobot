@@ -1,0 +1,14 @@
+version: '3'
+services:
+  demobot-compile:
+    # image: ubuntu:18.04
+    build:
+      context: .
+      args:
+        GID: $GID
+        UID: $UID
+        USER: $USER
+    user: $DOCKER_USER
+    volumes:
+      - ./:/comp
+    entrypoint: "tail -f"
